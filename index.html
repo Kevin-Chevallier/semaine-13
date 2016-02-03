@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="quiz">
+	<head>
+	 <meta charset="utf-8">
+		<title>Quiz </title>
+		<script src="angular.js"></script>
+		<script src="script.js"></script>
+			<link rel="stylesheet" href="stylesheet.css">
+		
+	</head>
+	
+	<body ng-controller="QuizController" >
+		<div class= "quiz" style="display:{{visuel}}">
+			<p class ="domaine">{{domaine}}</p>
+			<h1>{{questionnaire.question}}</h1>
+			<form ng-submit="valider()">
+				<input type="radio" ng-model="reponse" value="reponseA">{{questionnaire.reponseA}}<br>
+				<input type="radio" ng-model="reponse" value="reponseB">{{questionnaire.reponseB}}<br>
+				<input type="radio" ng-model="reponse" value="reponseC">{{questionnaire.reponseC}}<br>
+				<input type="radio" ng-model="reponse" value="reponseD">{{questionnaire.reponseD}}<br>
+				<input type="submit" value="valider" class="btn btn-success" id="boutonV">
+			</form>
+		</div>
+		<div class ="resultat" style="display:{{resultat}}">
+		<h1>Total:{{points}} /160</h1>
+		
+		<p>Points dans la catégorie Orthographe: {{categorie1}} /40</p>
+		<p>Points dans la catégorie Anglais: {{categorie2}} /40</p>
+		<p>Points dans la catégorie Musique: {{categorie3}} /40</p>
+		<p>Points dans la catégorie Alcool: {{categorie4}} /40</p>
+		<strong><p>{{texte}}</p></strong>
+		<button class="btn btn-danger" ng-click="clear()">Do It Again !</button>
+		</div>
+		
+		<div class ="solution" style="display:{{resultat}}">
+		<h1 id ="h1soluce">Solution</h1>
+		
+		<ul class="test">
+
+      <li ng-repeat="question in questions">
+	    <strong class="question">{{question.question}}</strong>
+	    <p class="reponse">{{question.bonneReponse}}</p>
+	  </li>
+	  <ul>
+	
+		</div>
+		
+	</body>
+</html>
